@@ -266,11 +266,7 @@ tabs = st.tabs(["🌳 Tree View", "🫧 Graph View", "ℹ️ Details"])
 # ---------------- Tree View ----------------
 with tabs[0]:
     st.subheader("Collapsible Tree")
-    if HAS_JSON_VIEW:
-        json_view(data, expanded=True, theme="github", show_copy_button=True, sort_keys=False)
-    else:
-        st.info("`streamlit-json-view` not installed – falling back to `st.json`. To enable the richer tree, run `pip install streamlit-json-view`.")
-        st.json(data)
+    st.json(data)
 
 # ---------------- Graph View ----------------
 with tabs[1]:
