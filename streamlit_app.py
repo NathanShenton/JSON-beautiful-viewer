@@ -1,20 +1,21 @@
-import json
-from pathlib import Path
-from collections import deque
 import streamlit as st
+import json
 
-# ---- Optional components (Tree View + Graph View) ----
+# Safe optional imports
+HAS_JSON_VIEW = False
+HAS_VIS = False
+
 try:
-    from streamlit_json_view import json_view  # pip install streamlit-json-view
+    from streamlit_json_view import json_view
     HAS_JSON_VIEW = True
-except Exception:
-    HAS_JSON_VIEW = False
+except Exception as e:
+    st.sidebar.warning(f"streamlit-json-view not available: {e}")
 
 try:
-    from streamlit_vis_network import vis_network  # pip install streamlit-vis-network
+    from streamlit_vis_network import vis_network
     HAS_VIS = True
-except Exception:
-    HAS_VIS = False
+except Exception as e:
+    st.sidebar.warning(f"streamlit-vis-network not available: {e}")
 
 
 # ------------------------ Helpers ------------------------
