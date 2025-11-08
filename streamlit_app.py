@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+from collections import deque
 
 # Safe optional imports
 HAS_JSON_VIEW = False
